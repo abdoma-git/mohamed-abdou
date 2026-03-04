@@ -3,6 +3,7 @@ include("connexion.php");
 
 $message_sent = false;
 $error_message = "";
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
