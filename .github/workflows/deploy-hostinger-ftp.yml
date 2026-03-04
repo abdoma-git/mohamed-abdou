@@ -20,7 +20,7 @@ jobs:
           username: u366711049
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
-          server-dir: public_html/
+          server-dir: /home/u366711049/domains/mzewebsite.com/public_html/
 
           exclude: |
             **/.git*
