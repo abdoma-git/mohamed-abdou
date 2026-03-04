@@ -2,27 +2,26 @@ name: Deploy to Hostinger (FTP)
 
 on:
   push:
-    branches: ["master"]   # change en "master" si ton repo utilise master
+    branches:
+      - master   # ou main selon ta branche
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Déploiement FTP vers Hostinger
-      - name: FTP Deploy
+      - name: Deploy files to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          server: 82.25.113.190
+          username: u366711049
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          server-dir: public_html/
 
-          # Important : évite d'envoyer des fichiers inutiles/sensibles
           exclude: |
             **/.git*
             **/.github/**
